@@ -15,12 +15,11 @@ function App() {
   return (
    <>
     <Navbar />
-    {/* <Home /> */}
     <Routes>
-      <Route  path="/" element={<Home/>} />
-      <Route exact path="/register" element={<Register/>} />
-      <Route exact path="/edit/:id" element={<Edit/>} />
-      <Route exact path="/view/:id" element={<Details/>} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/edit/:id" component={Edit} />
+      <Route exact path="/view/:id" component={Details} />
     </Routes>
    
    </>
