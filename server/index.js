@@ -1,5 +1,7 @@
-// var sql = require('mysql2');
-import sql from 'mysql2';
+var sql = require('mysql2');
+// import sql from 'mysql2';
+
+// import data from '../client/src/data/Json.json';
 
 const connection = sql.createConnection({
     host: 'localhost',
@@ -17,4 +19,4 @@ connection.connect((err) => {
     console.log('Connection established');
 });
 
-export default connection;
+// export default connection;

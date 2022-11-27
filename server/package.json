@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "mysql2": "^2.3.3",
+    "mysqlx": "^1.1.7",
     "require": "^0.4.4"
   }
 }
