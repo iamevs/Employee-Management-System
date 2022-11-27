@@ -1,16 +1,10 @@
-import connection from '../server/index.js';
+import connection from '../../server/index.js';
 import { useForm } from "react-hook-form";
 
 export default function App() {
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => {
-    // console.log(data);
-    connection.query('select * from employe.emp_dettails', function (error, results, fields) {
-      if (error) throw error;
-      console.log('The solution is: ', results);
-    });
-  };
-
+  const onSubmit = data => console.log(data);
+   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("firstName")} />
