@@ -107,8 +107,7 @@ const Register = () => {
                         <textarea name="desc" value={inpval.desc} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
                     </div>
 
-                    <button type="submit" onClick={addinpdata} class="btn text-white tool" style={{width: "200px", marginLeft: "10px", backgroundColor: "#19875447"}}>Submit</button>
-                    <a href="/home" className="btn text-white tool" style={{width: "200px", marginLeft: "10px", backgroundColor: "#e926263d"}}>Discard</a>
+                    <button type="submit" onClick={addinpdata} class="btn btn-primary" style={{width: "auto"}}>Submit</button>
                 </div>
             </form>
         </div>

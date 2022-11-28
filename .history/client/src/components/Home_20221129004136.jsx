@@ -137,7 +137,7 @@ const Home = () => {
                                     color: "#ADDDD0",
                                     filter: "drop-shadow(2px 4px 6px black)",
                                 }}>
-                                    <th scope="col">s.no</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">UserName</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Job</th>
