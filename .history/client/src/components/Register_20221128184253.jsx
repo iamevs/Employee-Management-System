@@ -34,7 +34,7 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, email, work, mobile, desc, age } = inpval;
+        const { name, email, work, add, mobile, desc, age } = inpval;
 
 
         if (name == "") {
@@ -69,7 +69,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/");
+                history.push("/")
                 setUdata(data)
                 console.log("data added");
 

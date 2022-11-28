@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { adddata } from './context/ContextProvider';
 
-var link = "http://localhost:8001/create";
-
 const Register = () => {
 
     const { udata, setUdata } = useContext(adddata);
@@ -34,7 +32,7 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, email, work, mobile, desc, age } = inpval;
+        const { name, email, work, add, mobile, desc, age } = inpval;
 
 
         if (name == "") {
@@ -45,19 +43,21 @@ const Register = () => {
             alert("enter valid email")
         } else if (work == "") {
             alert("work is required")
+        } else if (add == "") {
+            alert("add is required")
         } else if (mobile == "") {
             alert("mobile is required")
         } else if (age == "") {
             alert("age is required")
         } else {
 
-            const res = await fetch(link, {
+            const res = await fetch("/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name, email, work, mobile, desc, age
+                    name, email, work, add, mobile, desc, age
                 })
             });
 
@@ -69,7 +69,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/");
+                history.push("/")
                 setUdata(data)
                 console.log("data added");
 
@@ -102,6 +102,10 @@ const Register = () => {
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Work</label>
                         <input type="text" value={inpval.work} onChange={setdata} name="work" class="form-control" id="exampleInputPassword1" />
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputPassword1" class="form-label">Address</label>
+                        <input type="text" value={inpval.add} onChange={setdata} name="add" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputPassword1" class="form-label">Description</label>

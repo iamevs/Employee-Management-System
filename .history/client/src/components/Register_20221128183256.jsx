@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { adddata } from './context/ContextProvider';
 
-var link = "http://localhost:8001/create";
-
 const Register = () => {
 
     const { udata, setUdata } = useContext(adddata);
@@ -34,7 +32,7 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, email, work, mobile, desc, age } = inpval;
+        const { name, email, work, add, mobile, desc, age } = inpval;
 
 
         if (name == "") {
@@ -51,7 +49,7 @@ const Register = () => {
             alert("age is required")
         } else {
 
-            const res = await fetch(link, {
+            const res = await fetch("/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -69,7 +67,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/");
+                history.push("/")
                 setUdata(data)
                 console.log("data added");
 

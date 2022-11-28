@@ -102,15 +102,15 @@ const Home = () => {
             }
 
 
-            <div className="mt-5">
-                <div className="container">
-                    <div className="add_btn mt-2 mb-2">
-                        <NavLink to="/register" className="btn btn-primary">Add data</NavLink>
+            <div classNameName="mt-5">
+                <div classNameName="container">
+                    <div classNameName="add_btn mt-2 mb-2">
+                        <NavLink to="/register" classNameName="btn btn-primary">Add data</NavLink>
                     </div>
 
-                    <table class="table">
+                    <table className="table">
                         <thead>
-                            <tr className="table-dark">
+                            <tr classNameName="table-dark">
                                 <th scope="col">id</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">email</th>
@@ -131,10 +131,10 @@ const Home = () => {
                                                 <td>{element.email}</td>
                                                 <td>{element.work}</td>
                                                 <td>{element.mobile}</td>
-                                                <td className="d-flex justify-content-between">
-                                                    <NavLink to={`view/${element.id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>
-                                                    <NavLink to={`edit/${element.id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
-                                                    <button className="btn btn-danger" onClick={() => deleteuser(element.id)}><DeleteOutlineIcon /></button>
+                                                <td classNameName="d-flex justify-content-between">
+                                                    <NavLink to={`view/${element.id}`}> <button classNameName="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>
+                                                    <NavLink to={`edit/${element.id}`}>  <button classNameName="btn btn-primary"><CreateIcon /></button></NavLink>
+                                                    <button classNameName="btn btn-danger" onClick={() => deleteuser(element.id)}><DeleteOutlineIcon /></button>
                                                 </td>
                                             </tr>
                                         </>

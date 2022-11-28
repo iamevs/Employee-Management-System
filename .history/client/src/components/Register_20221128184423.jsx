@@ -69,7 +69,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/");
+                history.push("/")
                 setUdata(data)
                 console.log("data added");
 

@@ -6,7 +6,7 @@ const cors = require('cors');
 require('./database/connection');
 const router = require('./routes/router');
 
-const port = 8001;
+const port = 3000;
 
 
 //middleware
