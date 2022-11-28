@@ -21,13 +21,14 @@ router.post('/create', (req, res) => {
     });
 });
 
-router.get("/getusers", (req, res) =>{
+router.get("/getuser", (req, res) =>{
     connection.query("SELECT * FROM employe.emp_details", (err, result) => {
         if (err) {
             res.status(422).json("no data");
         } else {
             // res.send(result);
-            res.status(201).json(result);
+            res.status(201).json(req.body);
+            console.log("data fetched");
         }
     });
 })

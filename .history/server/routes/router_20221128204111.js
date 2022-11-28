@@ -28,6 +28,7 @@ router.get("/getusers", (req, res) =>{
         } else {
             // res.send(result);
             res.status(201).json(result);
+            console.log("data fetched");
         }
     });
 })

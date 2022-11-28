@@ -129,8 +129,8 @@ const Home = () => {
                                             <th scope="row">{ind + 1}</th>
                                             <td>{val.name}</td>
                                             <td>{val.email}</td>
-                                            <td>{val.work}</td>
-                                            <td>{val.mobile}</td>
+                                            <td>{val.job}</td>
+                                            <td>{val.number}</td>
                                             <td>
                                                 <NavLink to={`/view/${val._id}`} className="btn btn-primary"><RemoveRedEyeIcon /></NavLink>
                                                 <NavLink to={`/update/${val._id}`} className="btn btn-success"><CreateIcon /></NavLink>

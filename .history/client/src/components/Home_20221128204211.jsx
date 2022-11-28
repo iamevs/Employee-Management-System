@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { adddata, deldata } from './context/ContextProvider';
 import { updatedata } from './context/ContextProvider'
 
-var getuserlink = "http://localhost:8001/getusers";
+
 
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
 
     const getdata = async () => {
         
-        const res = await fetch(getuserlink, {
+        const res = await fetch("/getusers", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -129,8 +129,8 @@ const Home = () => {
                                             <th scope="row">{ind + 1}</th>
                                             <td>{val.name}</td>
                                             <td>{val.email}</td>
-                                            <td>{val.work}</td>
-                                            <td>{val.mobile}</td>
+                                            <td>{val.job}</td>
+                                            <td>{val.number}</td>
                                             <td>
                                                 <NavLink to={`/view/${val._id}`} className="btn btn-primary"><RemoveRedEyeIcon /></NavLink>
                                                 <NavLink to={`/update/${val._id}`} className="btn btn-success"><CreateIcon /></NavLink>

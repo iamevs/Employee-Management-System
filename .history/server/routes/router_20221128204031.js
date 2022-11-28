@@ -22,12 +22,13 @@ router.post('/create', (req, res) => {
 });
 
 router.get("/getusers", (req, res) =>{
-    connection.query("SELECT * FROM employe.emp_details", (err, result) => {
+    connection.query("SELECT * FROM employe", (err, result) => {
         if (err) {
             res.status(422).json("no data");
         } else {
             // res.send(result);
-            res.status(201).json(result);
+            res.status(201).json(req.body);
+            console.log("data fetched");
         }
     });
 })
