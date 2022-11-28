@@ -161,8 +161,8 @@ const Home = () => {
                                             <td>{val.work}</td>
                                             <td>{val.mobile}</td>
                                             <td className='btns'>
-                                                <NavLink to={`/view/${val.mobile}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
-                                                <NavLink to={`/edit/${val.mobile}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
+                                                <NavLink to={`/induser/${val.mobile}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
+                                                <NavLink to={`/updateuser/${val.mobile}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
                                                 <button onClick={() => deleteuser(val.mobile)} className="btn  tool" data-tip="Fire Employee"><DeleteOutlineIcon /></button>
                                                 <ReactTooltip />
                                             </td>

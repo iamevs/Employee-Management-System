@@ -87,10 +87,13 @@ router.get('/induser/:mobile', (req, res) => {
 
 router.patch('/updateuser/:mobile', (req, res) => {
     const id = req.params.mobile;
-
-    const data = req.body;
-
-    connection.query(`UPDATE employe.emp_details SET ? WHERE mobile = ${id}`, data, (err, result) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const work = req.body.work;
+    const mobile = req.body.mobile;
+    const desc = req.body.desc;
+    const age = req.body.age;
+    connection.query(`UPDATE employe.emp_details SET name = '${name}', email = '${email}', work = '${work}', mobile = '${mobile}', des = '${desc}', age = ${age} WHERE mobile = ${id}`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -98,7 +101,6 @@ router.patch('/updateuser/:mobile', (req, res) => {
             console.log("data updated");
         }
     });
-    
 });
 
 module.exports = router;

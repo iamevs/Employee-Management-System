@@ -79,7 +79,7 @@ const Register = () => {
     }
 
     return (
-        <div className="container" style={{height: "100vh", overflowY: "scroll"}}>
+        <div className="container">
             <form className="mt-4">
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">

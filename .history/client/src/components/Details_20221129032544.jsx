@@ -9,7 +9,7 @@ import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 
-var datailslink = 'http://localhost:8001/induser/';
+var datailslink = 'http://localhost:8001/induser';
 
 
 const Details = () => {
@@ -19,14 +19,13 @@ const Details = () => {
 
     const { id } = useParams("");
     console.log(id);
-    // console.log(id);
+
+    const history = useNavigate();
+
 
     const getdata = async () => {
 
-        // console.log(id);
-        console.log(id);
-
-        const res = await fetch(`${datailslink}${id}`, {
+        const res = await fetch(`${datailslink}/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -48,7 +47,27 @@ const Details = () => {
     useEffect(() => {
         getdata();
     }, [])
-    
+
+    const deleteuser = async (id) => {
+
+        const res2 = await fetch(`/deleteuser/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const deletedata = await res2.json();
+        console.log(deletedata);
+
+        if (res2.status === 422 || !deletedata) {
+            console.log("error");
+        } else {
+            console.log("user deleted");
+            history.push("/");
+        }
+
+    }
 
     return (
         <div className="container mt-3">
@@ -56,6 +75,10 @@ const Details = () => {
 
             <Card sx={{ maxWidth: 600 }}>
                 <CardContent>
+                    <div className="add_btn">
+                        <NavLink to={`/edit/${getuserdata.id}`}>  <button className="btn btn-primary mx-2"><CreateIcon /></button></NavLink>
+                        <button className="btn btn-danger" onClick={() => deleteuser(getuserdata.id)}><DeleteOutlineIcon /></button>
+                    </div>
                     <div className="row">
                         <div className="left_view col-lg-6 col-md-6 col-12">
                             <img src="/profile.png" style={{ width: 50 }} alt="profile" />
@@ -65,8 +88,10 @@ const Details = () => {
                             <p className="mt-3"><WorkIcon />Occuption: <span>{getuserdata.work}</span></p>
                         </div>
                         <div className="right_view  col-lg-6 col-md-6 col-12">
-                            <p className="mt-5">Employee ID: <span>{getuserdata.mobile}</span></p>
-                            <p className="mt-3">Description: <span>{getuserdata.des}</span></p>
+
+                            <p className="mt-5"><PhoneAndroidIcon />mobile: <span>+91 {getuserdata.mobile}</span></p>
+                            <p className="mt-3"><LocationOnIcon />location: <span>{getuserdata.add}</span></p>
+                            <p className="mt-3">Description: <span>{getuserdata.desc}</span></p>
                         </div>
                     </div>
 

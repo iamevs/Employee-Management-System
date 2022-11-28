@@ -17,21 +17,15 @@ body {
 .tool{
   /* border: 1px solid #fff; */
   backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 2px 0px rgb(0 0 0 / 35%);
+  box-shadow: 0px 0px 9px 1px rgb(0 0 0 / 35%);
 }
 
-/* .btns > .tool{
+.btns > .tool{
   box-shadow:rgb(0 0 0 / 35%);
-} */
+}
 
 /* .form-control{
   background-color: #212529 !important;
   color: #C8DBBE !important;
   border: 1px solid #fff !important;
 } */
-
-.alert{
-  position: absolute !important;
-  top: 10px !important;
-  left: 50% !important;
-}

@@ -53,8 +53,8 @@ router.get('/induser/:mobile', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.send(result);
-            // console.log(result);
+            // res.send(result);
+            console.log(result);
         }
     });
     // connection.query(`SELECT * FROM employe.emp_details WHERE mobile = '1'`, (err, result) => {
@@ -68,7 +68,7 @@ router.get('/induser/:mobile', (req, res) => {
     // console.log(id);
 });
 
-// router.patch('/updateuser/:mobile', (req, res) => {
+// router.edit('/updateuser/:mobile', (req, res) => {
 //     const name = req.body.name;
 //     const email = req.body.email;
 //     const work = req.body.work;
@@ -84,21 +84,5 @@ router.get('/induser/:mobile', (req, res) => {
 //         }
 //     });
 // })
-
-router.patch('/updateuser/:mobile', (req, res) => {
-    const id = req.params.mobile;
-
-    const data = req.body;
-
-    connection.query(`UPDATE employe.emp_details SET ? WHERE mobile = ${id}`, data, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-            console.log("data updated");
-        }
-    });
-    
-});
 
 module.exports = router;

@@ -21,6 +21,9 @@ const Details = () => {
     console.log(id);
     // console.log(id);
 
+    const history = useNavigate();
+
+
     const getdata = async () => {
 
         // console.log(id);
@@ -48,7 +51,27 @@ const Details = () => {
     useEffect(() => {
         getdata();
     }, [])
-    
+
+    const deleteuser = async (mobile) => {
+
+        const res2 = await fetch(`/deleteuser/${mobile}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const deletedata = await res2.json();
+        console.log(deletedata);
+
+        if (res2.status === 422 || !deletedata) {
+            console.log("error");
+        } else {
+            console.log("user deleted");
+            history('/home');
+        }
+
+    }
 
     return (
         <div className="container mt-3">

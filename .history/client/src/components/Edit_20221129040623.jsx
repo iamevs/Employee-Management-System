@@ -72,7 +72,7 @@ const Edit = () => {
     const updateuser = async(e)=>{
         e.preventDefault();
 
-        const {name,email,work,mobile,des,age} = inpval;
+        const {name,email,work,mobile,desc,age} = inpval;
 
         const res2 = await fetch(`${editlink}${id}`,{
             method: "PATCH",
@@ -80,7 +80,7 @@ const Edit = () => {
                 "Content-Type": "application/json"
             },
             body:JSON.stringify({
-                name,email,work,mobile,des,age
+                name,email,work,mobile,desc,age
             })
         });
 
@@ -90,7 +90,7 @@ const Edit = () => {
         if(res2.status === 422 || !data2){
             alert("fill the data");
         }else{
-            history("/home");
+            history.push("/")
             setUPdata(data2);
         }
 

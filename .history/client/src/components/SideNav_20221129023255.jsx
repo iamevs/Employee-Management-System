@@ -60,9 +60,9 @@ const SideBar = () => {
                         spacing={3}
                         marginTop={"20vh"}
                     >
-                        <a href="/home">
-                            {Nav_Buttons.map((el) => {
-                                return el.index === selectedTab ? (
+                        {Nav_Buttons.map((el) => {
+                            return el.index === selectedTab ? (
+                                <a href="/home">
                                     <Box
                                         sx={{
                                             // backgroundColor: theme.palette.primary.main,
@@ -74,25 +74,24 @@ const SideBar = () => {
                                             {el.icon}
                                         </IconButton>
                                     </Box>
-
-                                ) : (
-                                    <IconButton
-                                        onClick={() => {
-                                            handleChangeTab(el.index);
-                                        }}
-                                        sx={{
-                                            width: "max-content",
-                                            color:
-                                                theme.palette.mode === "light"
-                                                    ? "#080707"
-                                                    : theme.palette.text.primary,
-                                        }}
-                                    >
-                                        {el.icon}
-                                    </IconButton>
-                                );
-                            })}
-                        </a>
+                                </a>
+                            ) : (
+                                <IconButton
+                                    onClick={() => {
+                                        handleChangeTab(el.index);
+                                    }}
+                                    sx={{
+                                        width: "max-content",
+                                        color:
+                                            theme.palette.mode === "light"
+                                                ? "#080707"
+                                                : theme.palette.text.primary,
+                                    }}
+                                >
+                                    {el.icon}
+                                </IconButton>
+                            );
+                        })}
                         <Divider sx={{ width: 48 }} />
                         {Nav_Setting.map((el) => {
                             return el.index === selectedTab ? (

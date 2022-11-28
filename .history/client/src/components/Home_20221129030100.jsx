@@ -8,7 +8,7 @@ import { updatedata } from './context/ContextProvider'
 import ReactTooltip from 'react-tooltip';
 
 var getuserlink = "http://localhost:8001/getusers";
-var deleteuserlink = "http://localhost:8001/deleteuser";
+var deleteuserlink = "http://localhost:8001/deleteuser/";
 
 
 const Home = () => {
@@ -49,9 +49,9 @@ const Home = () => {
         getdata();
     }, [])
 
-    const deleteuser = async (mobile) => {
+    const deleteuser = async (id) => {
 
-        const res2 = await fetch(`${deleteuserlink}/${mobile}`, {
+        const res2 = await fetch(`http://localhost:8001/deleteuser/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -161,9 +161,9 @@ const Home = () => {
                                             <td>{val.work}</td>
                                             <td>{val.mobile}</td>
                                             <td className='btns'>
-                                                <NavLink to={`/view/${val.mobile}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
-                                                <NavLink to={`/edit/${val.mobile}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
-                                                <button onClick={() => deleteuser(val.mobile)} className="btn  tool" data-tip="Fire Employee"><DeleteOutlineIcon /></button>
+                                                <NavLink to={`/view/${val._id}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
+                                                <NavLink to={`/update/${val._id}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
+                                                <button onClick={() => deleteuser(val._id)} className="btn  tool" data-tip="Fire Employee"><DeleteOutlineIcon /></button>
                                                 <ReactTooltip />
                                             </td>
                                         </tr>
