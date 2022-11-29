@@ -128,7 +128,7 @@ const SideBar = () => {
                     </Stack>
                 </Stack>
                 <Stack spacing={4}>
-                    {/* <AntSwitch defaultChecked onChange={onToggleMode} /> */}
+                    <AntSwitch defaultChecked onChange={onToggleMode} />
                     {/* Profile Menu */}
                     <ProfileMenu />
                 </Stack>

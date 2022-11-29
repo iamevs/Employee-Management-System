@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import AntSwitch from "../../components/AntSwitch.jsx";
 
-import Logo from "../assets/Images/icon.png";
+import Logo from "../assets/Images/logo.png";
 
 import useSettings from "../../hooks/useSettings.jsx";
 import { Nav_Buttons, Nav_Setting } from "../../data";
@@ -42,8 +42,8 @@ const SideBar = () => {
                 <Stack alignItems={"center"} spacing={4}>
                     <Box
                         sx={{
-                            height: 150,
-                            width: 150,
+                            height: 64,
+                            width: 64,
                             borderRadius: 1.5,
                             //   backgroundColor: theme.palette.primary.main,
                             color: "#000",
@@ -128,7 +128,7 @@ const SideBar = () => {
                     </Stack>
                 </Stack>
                 <Stack spacing={4}>
-                    {/* <AntSwitch defaultChecked onChange={onToggleMode} /> */}
+                    <AntSwitch defaultChecked onChange={onToggleMode} />
                     {/* Profile Menu */}
                     <ProfileMenu />
                 </Stack>

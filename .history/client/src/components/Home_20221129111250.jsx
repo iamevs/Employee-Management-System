@@ -115,7 +115,7 @@ const Home = () => {
                     fontWeight: "600",
                     marginBottom: "20px",
                     // textShadow: "-10px 10px 15px rgba(0, 0, 0, 0.8)"
-                }}><span style={{ fontSize: "40px", textShadow: "#6c757d 4px 2px 8px" }} data-tip="Employees list">👷</span> <ReactTooltip/></h2>
+                }}><span style={{ fontSize: "40px", backdropFilter: "blur(10px)" }}>👷</span> </h2>
                 <div className="add_btn mt-2 mb-2" style={{marginTop: "30px"}}>
                     <NavLink to="/register" className="btn tool btn-success" style={{ marginRight: "40px" }}>Add data</NavLink>
                 </div>
