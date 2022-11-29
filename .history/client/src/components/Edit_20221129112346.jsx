@@ -113,7 +113,7 @@ const Edit = () => {
                         <input type="text" value={inpval.age} onChange={setdata} name="age" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">Employee Id</label>
+                        <label for="exampleInputPassword1" class="form-label">Mobile</label>
                         <input type="number" value={inpval.mobile} onChange={setdata} name="mobile" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
@@ -125,7 +125,7 @@ const Edit = () => {
                         <textarea name="desc" value={inpval.des} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
                     </div>
 
-                    <button type="submit" onClick={updateuser} class="btn btn-success tool" style={{width: "200px", marginLeft: "10px"}}>Submit</button>
+                    <button type="submit" onClick={updateuser} class="btn btn-primary" style={{width: "200px", marginLeft: "10px"}}>>Submit</button>
                     <a href="/home" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
                 </div>
             </form>

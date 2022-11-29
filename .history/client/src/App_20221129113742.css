@@ -26,9 +26,3 @@
 .right_view span{
   font-weight: 400;
 }
-
-@media (max-width: 768px) {
-  .right_view{
-    margin-top: 70px;
-  }
-}

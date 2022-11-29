@@ -51,10 +51,10 @@ const Details = () => {
 
 
     return (
-        <div className="container mt-3" style={{ paddingLeft: "20px" }}>
-            <h1 style={{ fontWeight: 600, margin: "40px 0 40px 0" }}>Welcome to {getuserdata.name}'s Profile</h1>
+        <div className="container mt-3">
+            <h1 style={{ fontWeight: 400 }}>Welcome</h1>
 
-            <Card sx={{ maxWidth: 1000, borderRadius: "10px" }}>
+            <Card sx={{ maxWidth: 600 }}>
                 <CardContent>
                     <div className="row" style={{ padding: "20px" }}>
                         <div className="left_view col-lg-6 col-md-6 col-12" style={{ padding: "20px" }}>
@@ -65,14 +65,13 @@ const Details = () => {
                             <h3 className="mt-3" style={{ padding: "2px" }}>Occuption: <span>{getuserdata.work}</span></h3>
                         </div>
                         <div className="right_view  col-lg-6 col-md-6 col-12" style={{ padding: "20px", marginTop: "10px" }}>
-                            <h3 className="" style={{ padding: "2px" }}>Employee ID: <span>{getuserdata.mobile}</span></h3>
+                            <h3 className="mt-5" style={{ padding: "2px" }}>Employee ID: <span>{getuserdata.mobile}</span></h3>
                             <h3 className="mt-3" style={{ padding: "2px" }}>Description: <span>{getuserdata.des}</span></h3>
                         </div>
                     </div>
+
                 </CardContent>
             </Card>
-            <a href="/home" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
-
         </div>
     )
 }

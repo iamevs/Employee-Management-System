@@ -51,8 +51,8 @@ const Details = () => {
 
 
     return (
-        <div className="container mt-3" style={{ paddingLeft: "20px" }}>
-            <h1 style={{ fontWeight: 600, margin: "40px 0 40px 0" }}>Welcome to {getuserdata.name}'s Profile</h1>
+        <div className="container mt-3" style={{paddingLeft: "20px"}}>
+            <h1 style={{ fontWeight: 400, marginTop: "20px" }}>Welcome to {getuserdata.name}'s Profile</h1>
 
             <Card sx={{ maxWidth: 1000, borderRadius: "10px" }}>
                 <CardContent>
@@ -69,10 +69,9 @@ const Details = () => {
                             <h3 className="mt-3" style={{ padding: "2px" }}>Description: <span>{getuserdata.des}</span></h3>
                         </div>
                     </div>
+
                 </CardContent>
             </Card>
-            <a href="/home" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
-
         </div>
     )
 }

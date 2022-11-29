@@ -142,10 +142,10 @@ const Home = () => {
                                 // filter: "drop-shadow(2px 4px 6px black)",
                             }}>
                                 <th scope="col">s.no</th>
-                                <th scope="col">Employee Id</th>
                                 <th scope="col">UserName</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Job</th>
+                                <th scope="col">Employee id</th>
                                 <th scope="col">Tools</th>
                             </tr>
                         </thead>
@@ -156,10 +156,10 @@ const Home = () => {
                                     return (
                                         <tr className=''>
                                             <th scope="row">{ind + 1}</th>
-                                            <td>{val.mobile}</td>
                                             <td>{val.name}</td>
                                             <td>{val.email}</td>
                                             <td>{val.work}</td>
+                                            <td>{val.mobile}</td>
                                             <td className='btns'>
                                                 <NavLink to={`/view/${val.mobile}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
                                                 <NavLink to={`/edit/${val.mobile}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
