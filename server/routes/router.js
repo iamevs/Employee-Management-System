@@ -14,6 +14,7 @@ router.post('/create', (req, res) => {
     connection.query(`insert into employe.emp_details (name,email,work,mobile,des,age) values ('${name}','${email}','${work}','${mobile}','${desc}',${age});`, (err, result) => {
         if (err) {
             console.log(err);
+
         } else {
             res.send(result);
             console.log("data inserted");
@@ -98,7 +99,24 @@ router.patch('/updateuser/:mobile', (req, res) => {
             console.log("data updated");
         }
     });
-    
+
+});
+
+router.post('/leavecreate/', (req, res) => {
+    const name = req.body.name;
+    const id = req.body.id;
+    const date = req.body.date;
+    const reason = req.body.desc;
+
+    connection.query(`insert into employe.leave_details (id,name,days,reason) values ('${id}','${name}','${date}','${reason}');`, (err, result) => {
+        if (err) {
+            console.log(err);
+
+        } else {
+            res.send(result);
+            console.log("data inserted");
+        }
+    });
 });
 
 module.exports = router;

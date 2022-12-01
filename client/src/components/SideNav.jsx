@@ -95,40 +95,42 @@ const SideBar = () => {
                             })}
                         </a>
                         <Divider sx={{ width: 48 }} />
-                        {Nav_Setting.map((el) => {
-                            return el.index === selectedTab ? (
-                                <Box
-                                    sx={{
-                                        // backgroundColor: theme.palette.primary.main,
-                                        borderRadius: 1.5,
-                                    }}
-                                    p={1}
-                                >
-                                    <IconButton sx={{ width: "max-content", color: "#000" }}>
+                        <a href="/leave">
+                            {Nav_Setting.map((el) => {
+                                return el.index === selectedTab ? (
+                                    <Box
+                                        sx={{
+                                            // backgroundColor: theme.palette.primary.main,
+                                            borderRadius: 1.5,
+                                        }}
+                                        p={1}
+                                    >
+                                        <IconButton sx={{ width: "max-content", color: "#000" }}>
+                                            {el.icon}
+                                        </IconButton>
+                                    </Box>
+                                ) : (
+                                    <IconButton
+                                        onClick={() => {
+                                            handleChangeTab(el.index);
+                                        }}
+                                        sx={{
+                                            width: "max-content",
+                                            color:
+                                                theme.palette.mode === "light"
+                                                    ? "#080707"
+                                                    : theme.palette.text.primary,
+                                        }}
+                                    >
                                         {el.icon}
                                     </IconButton>
-                                </Box>
-                            ) : (
-                                <IconButton
-                                    onClick={() => {
-                                        handleChangeTab(el.index);
-                                    }}
-                                    sx={{
-                                        width: "max-content",
-                                        color:
-                                            theme.palette.mode === "light"
-                                                ? "#080707"
-                                                : theme.palette.text.primary,
-                                    }}
-                                >
-                                    {el.icon}
-                                </IconButton>
-                            );
-                        })}
+                                );
+                            })}
+                        </a>
                     </Stack>
                 </Stack>
                 <Stack spacing={4}>
-                    {/* <AntSwitch defaultChecked onChange={onToggleMode} /> */}
+                    <AntSwitch defaultChecked onChange={onToggleMode} />
                     {/* Profile Menu */}
                     <ProfileMenu />
                 </Stack>
