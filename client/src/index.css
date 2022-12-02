@@ -35,3 +35,7 @@ body {
   top: 10px !important;
   left: 50% !important;
 }
+
+.emp_card{
+  min-width: 75vh !important;
+}
