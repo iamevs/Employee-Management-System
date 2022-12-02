@@ -1,3 +1,4 @@
+const { json } = require('express');
 const express = require('express');
 const router = new express.Router();
 const { connection } = require('../database/connection');
@@ -70,21 +71,21 @@ function deleteuser(emp_id) {
         if (err) {
             console.log(err);
         } else {
-            console.log("user deleted");
+            console.log("user deleted from employee table");
         }
     });
     connection.query(`DELETE FROM ems.job_department WHERE emp_id = '${emp_id}'`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            console.log("user deleted");
+            console.log("user deleted from job_department table");
         }
     });
     connection.query(`DELETE FROM ems.salary WHERE emp_id = '${emp_id}'`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            console.log("user deleted");
+            console.log("user deleted from salary table");
         }
     }
     );
@@ -92,7 +93,7 @@ function deleteuser(emp_id) {
         if (err) {
             console.log(err);
         } else {
-            console.log("user deleted");
+            console.log("user deleted from qualification table");
         }
     }
     );
@@ -104,58 +105,82 @@ router.delete('/deleteuser/:emp_id', (req, res) => {
     deleteuser(id);
 });
 
-router.get('/induser/:mobile', (req, res) => {
-    const id = req.params.mobile;
-    // console.log(id);
-    connection.query(`SELECT * FROM employe.emp_details WHERE mobile = ${id}`, (err, result) => {
+function induser(emp_id, res) {
+    connection.query(`SELECT * FROM ems.employee WHERE( emp_id = '${emp_id}')`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            res.send(result);
-            // console.log(result);
+            // console.log("user found in employee table");
+            // json(result);
+            // let data = result;
+            res.status(201).json(result);
         }
+
     });
-    // connection.query(`SELECT * FROM employe.emp_details WHERE mobile = '1'`, (err, result) => {
+    // connection.query(`SELECT job_dept FROM ems.job_department WHERE emp_id = '${emp_id}'`, (err, result) => {
     //     if (err) {
     //         console.log(err);
     //     } else {
-    //         // res.send(result);
-    //         console.log(result);
+    //         // console.log("user found in job_department table");
+    //         // res.status(201).json(result);
+    //         // const js = JSON.stringify(result);
+    //         // res.status(201).json(result);
+
     //     }
     // });
-    // console.log(id);
+    // connection.query(`SELECT date_in FROM ems.qualification WHERE (emp_id = '${emp_id}')`, (err, result) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         // console.log("user found in qualification table");
+    //         res.status(201).json(result);
+    //     }
+    // });
+}
+
+router.get('/induser/:emp_id', (req, res) => {
+    const id = req.params.emp_id;
+    induser(id, res);
+    // connection.query(`SELECT * FROM ems.employee WHERE( emp_id = '${id}')`, (err, result) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         // console.log("user found in employee table");
+    //         res.send(result);
+    //     }
+    // });
 });
 
-// router.patch('/updateuser/:mobile', (req, res) => {
-//     const name = req.body.name;
-//     const email = req.body.email;
-//     const work = req.body.work;
-//     const mobile = req.body.mobile;
-//     const desc = req.body.desc;
-//     const age = req.body.age;
-//     connection.query(`UPDATE employe.emp_details SET name = '${name}', email = '${email}', work = '${work}', mobile = '${mobile}', des = '${desc}', age = ${age} WHERE mobile = ${mobile}`, (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.send(result);
-//             console.log("data updated");
-//         }
-//     });
-// })
-
-router.patch('/updateuser/:mobile', (req, res) => {
-    const id = req.params.mobile;
-
-    const data = req.body;
-
-    connection.query(`UPDATE employe.emp_details SET ? WHERE mobile = ${id}`, data, (err, result) => {
+router.get('/induserjob/:emp_id', (req, res) => {
+    const id = req.params.emp_id;
+    connection.query(`SELECT * FROM ems.job_department WHERE emp_id = '${id}'`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
+            // res.status(201).json(result);
             res.send(result);
-            console.log("data updated");
+            console.log("user found in job_department table");
         }
     });
+});
+
+
+function updateuser(emp_id, data) {
+    connection.query(`UPDATE ems.employee SET ? WHERE (emp_id = '${emp_id}')`, data, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("user updated in employee table");
+        }
+    });
+}
+
+router.patch('/updateuser/:emp_id', (req, res) => {
+    const id = req.params.emp_id;
+
+    const data = req.body;
+
+    updateuser(id, data);
 
 });
 
