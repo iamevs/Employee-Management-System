@@ -17,12 +17,23 @@ const Edit = () => {
     const history = useNavigate("");
 
     const [inpval, setINP] = useState({
-        name: "",
-        email: "",
+        emp_id: "",
+        fname: "",
+        lname: "",
+        gender: "",
         age: "",
-        mobile: "",
-        work: "",
-        desc: ""
+        add: "",
+        email: "",
+        pass : "",
+        job_dept: "",
+        job_name: "",
+        job_description: "",
+        salary_range: "",
+        amount: "",
+        bonus: "",
+        position: "",
+        requirements: "",
+        date_in: "",
     })
 
     const setdata = (e) => {
@@ -90,7 +101,7 @@ const Edit = () => {
         if(res2.status === 422 || !data2){
             alert("fill the data");
         }else{
-            history("/home");
+            history("/");
             setUPdata(data2);
         }
 
@@ -126,7 +137,7 @@ const Edit = () => {
                     </div>
 
                     <button type="submit" onClick={updateuser} class="btn btn-success tool" style={{width: "200px", marginLeft: "10px"}}>Submit</button>
-                    <a href="/home" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
+                    <a href="/" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
                 </div>
             </form>
         </div>
