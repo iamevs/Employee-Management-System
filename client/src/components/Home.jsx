@@ -145,7 +145,7 @@ const Home = () => {
                                 <th scope="col">Employee Id</th>
                                 <th scope="col">UserName</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Job</th>
+                                <th scope="col">age</th>
                                 <th scope="col">Tools</th>
                             </tr>
                         </thead>
@@ -157,9 +157,9 @@ const Home = () => {
                                         <tr className=''>
                                             <th scope="row">{ind + 1}</th>
                                             <td>{val.emp_id}</td>
-                                            <td>{val.name}</td>
+                                            <td>{val.fname} {val.lname}</td>
                                             <td>{val.email}</td>
-                                            <td>{val.work}</td>
+                                            <td>{val.age}</td>
                                             <td className='btns'>
                                                 <NavLink to={`/view/${val.emp_id}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
                                                 <NavLink to={`/edit/${val.emp_id}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>

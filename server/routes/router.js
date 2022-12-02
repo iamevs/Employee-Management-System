@@ -55,7 +55,7 @@ router.post('/create', (req, res) => {
 });
 
 router.get("/getusers", (req, res) => {
-    connection.query("SELECT * FROM employe.emp_details", (err, result) => {
+    connection.query("SELECT * FROM ems.employee", (err, result) => {
         if (err) {
             res.status(422).json("no data");
         } else {
@@ -65,18 +65,43 @@ router.get("/getusers", (req, res) => {
     });
 })
 
-
-router.delete('/deleteuser/:mobile', (req, res) => {
-
-    const id = req.params.mobile;
-    connection.query(`DELETE FROM employe.emp_details WHERE mobile = ${id}`, (err, result) => {
+function deleteuser(emp_id) {
+    connection.query(`DELETE FROM ems.employee WHERE emp_id = '${emp_id}'`, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            res.send(result);
-            console.log("data deleted");
+            console.log("user deleted");
         }
     });
+    connection.query(`DELETE FROM ems.job_department WHERE emp_id = '${emp_id}'`, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("user deleted");
+        }
+    });
+    connection.query(`DELETE FROM ems.salary WHERE emp_id = '${emp_id}'`, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("user deleted");
+        }
+    }
+    );
+    connection.query(`DELETE FROM ems.qualification WHERE emp_id = '${emp_id}'`, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("user deleted");
+        }
+    }
+    );
+}
+
+router.delete('/deleteuser/:emp_id', (req, res) => {
+
+    const id = req.params.emp_id;
+    deleteuser(id);
 });
 
 router.get('/induser/:mobile', (req, res) => {
