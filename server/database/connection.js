@@ -14,7 +14,7 @@ connection.connect(function(err) {
 
 // connection.query("insert into employe.emp_details (name) values ('test');");
 
-// connection.query("SELECT * FROM employe.emp_details", function (err, result, fields) {
+// connection.query("SELECT * FROM ems.employee;", function (err, result, fields) {
 //     if (err) throw err;
 //     console.log(result);
 // });
