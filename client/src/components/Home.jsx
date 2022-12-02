@@ -49,9 +49,9 @@ const Home = () => {
         getdata();
     }, [])
 
-    const deleteuser = async (mobile) => {
+    const deleteuser = async (emp_id) => {
 
-        const res2 = await fetch(`${deleteuserlink}/${mobile}`, {
+        const res2 = await fetch(`${deleteuserlink}/${emp_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -156,14 +156,14 @@ const Home = () => {
                                     return (
                                         <tr className=''>
                                             <th scope="row">{ind + 1}</th>
-                                            <td>{val.mobile}</td>
+                                            <td>{val.emp_id}</td>
                                             <td>{val.name}</td>
                                             <td>{val.email}</td>
                                             <td>{val.work}</td>
                                             <td className='btns'>
-                                                <NavLink to={`/view/${val.mobile}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
-                                                <NavLink to={`/edit/${val.mobile}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
-                                                <button onClick={() => deleteuser(val.mobile)} className="btn  tool" data-tip="Fire Employee"><DeleteOutlineIcon /></button>
+                                                <NavLink to={`/view/${val.emp_id}`} className="btn tool" data-tip="More Details"><ReadMoreRoundedIcon /></NavLink>
+                                                <NavLink to={`/edit/${val.emp_id}`} className="btn  tool" data-tip="Edit Details"><NoteAltOutlinedIcon /></NavLink>
+                                                <button onClick={() => deleteuser(val.emp_id)} className="btn  tool" data-tip="Fire Employee"><DeleteOutlineIcon /></button>
                                                 <ReactTooltip />
                                             </td>
                                         </tr>
