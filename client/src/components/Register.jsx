@@ -11,12 +11,23 @@ const Register = () => {
     const history = useNavigate();
 
     const [inpval, setINP] = useState({
-        name: "",
-        email: "",
+        emp_id: "",
+        fname: "",
+        lname: "",
+        gender: "",
         age: "",
-        mobile: "",
-        work: "",
-        desc: ""
+        add: "",
+        email: "",
+        pass: "",
+        job_dept: "",
+        job_name: "",
+        job_description: "",
+        salary_range: "",
+        amount: "",
+        bonus: "",
+        position: "",
+        requirements: "",
+        date_in: "",
     })
 
     const setdata = (e) => {
@@ -34,30 +45,19 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, email, work, mobile, desc, age } = inpval;
+        const { emp_id, fname, lname, gender, age, add, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in } = inpval;
 
-
-        if (name == "") {
-            alert("name is required")
-        } else if (email == "") {
-            alert("email is required")
-        } else if (!email.includes("@")) {
-            alert("enter valid email")
-        } else if (work == "") {
-            alert("work is required")
-        } else if (mobile == "") {
-            alert("emp id is required")
-        } else if (age == "") {
-            alert("age is required")
-        } else {
-
+        if (emp_id == "" || fname == "" || lname == "" || gender == "" || add == "" || email == "" || pass == "" || job_dept == "" || job_name == "" || job_description == "" || salary_range == "" || amount == "" || bonus == "" || position == "" || requirements == "" || date_in == "") {
+            alert("Fill all details")
+        }
+        else {
             const res = await fetch(link, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name, email, work, mobile, desc, age
+                    emp_id, fname, lname, gender, age, add, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in
                 })
             });
 
@@ -69,7 +69,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/home");
+                history("/");
                 setUdata(data)
                 console.log("data added");
 
@@ -79,25 +79,47 @@ const Register = () => {
     }
 
     return (
-        <div className="container" style={{height: "100vh", overflowY: "scroll"}}>
+        <div className="container" style={{ height: "100vh", overflowY: "scroll" }}>
             <form className="mt-4">
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" class="form-label">First name</label>
+                        <input type="text" value={inpval.fname} onChange={setdata} name="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                        <input type="text" value={inpval.lname} onChange={setdata} name="lname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-3  col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputEmail1" class="form-label">Employee Id</label>
+                        <input type="number" value={inpval.emp_id} onChange={setdata} name="emp_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12" style={{marginTop: 35}}>
+                        <label for="exampleInputEmail1" class="form-label" style={{marginRight: 10}}>Gender</label>
+                        {/* <input type="dropdown" value={inpval.gender} onChange={setdata} name="gender" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" /> */}
+                        <select name="selectList" id="selectList" style={{borderRadius: "5px", padding: 2}}>
+                            <option value={inpval.gender} onChange={setdata}>Male</option>
+                            <option value={inpval.gender} onChange={setdata}>Female</option>
+                            <option value={inpval.gender} onChange={setdata}>other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputEmail1" class="form-label">Age</label>
+                        <input type="number" value={inpval.age} onChange={setdata} name="age" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputPassword1" class="form-label">Address</label>
+                        <input type="text" value={inpval.Address} onChange={setdata} name="address" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Email</label>
                         <input type="email" value={inpval.email} onChange={setdata} name="email" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">Age</label>
-                        <input type="text" value={inpval.age} onChange={setdata} name="age" class="form-control" id="exampleInputPassword1" />
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" value={inpval.pass} onChange={setdata} name="pass" class="form-control" id="exampleInputPassword1" />
                     </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">Employee Id</label>
-                        <input type="number" value={inpval.mobile} onChange={setdata} name="mobile" class="form-control" id="exampleInputPassword1" />
-                    </div>
+                    
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Work</label>
                         <input type="text" value={inpval.work} onChange={setdata} name="work" class="form-control" id="exampleInputPassword1" />
@@ -107,8 +129,8 @@ const Register = () => {
                         <textarea name="desc" value={inpval.desc} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
                     </div>
 
-                    <button type="submit" onClick={addinpdata} class="btn btn-success text-white tool" style={{width: "200px", marginLeft: "10px"}}>Submit</button>
-                    <a href="/home" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
+                    <button type="submit" onClick={addinpdata} class="btn btn-success text-white tool" style={{ width: "200px", marginLeft: "10px" }}>Submit</button>
+                    <a href="/" className="btn text-white btn-danger tool" style={{ width: "200px", marginLeft: "10px" }}>Discard</a>
                 </div>
             </form>
         </div>

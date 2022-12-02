@@ -13,7 +13,8 @@ const Register = () => {
     const [inpval, setINP] = useState({
         name: "",
         id: "",
-        date: "",
+        fromdate: 0,
+        todate:0 ,
         desc: ""
     })
 
@@ -32,12 +33,12 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, date, id, desc} = inpval;
+        const { name, fromdate, todate , id, desc} = inpval;
 
 
         if (name == "") {
             alert("name is required")
-        } else if (date == "") {
+        } else if (fromdate == "") {
             alert("date is required")
         } else if (id == "") {
             alert("emp id is required")
@@ -49,7 +50,7 @@ const Register = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name, date, id, desc
+                    name, fromdate,todate, id, desc
                 })
             });
 
@@ -61,7 +62,7 @@ const Register = () => {
                 alert("error");
 
             } else {
-                history("/home");
+                history("/");
                 // setUdata(data2)
                 // console.log("data added");
 
@@ -83,8 +84,12 @@ const Register = () => {
                         <input type="number" value={inpval.id} onChange={setdata} name="id" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">From - to</label>
-                        <input type="text" value={inpval.date} onChange={setdata} name="date" class="form-control" id="exampleInputPassword1" />
+                        <label for="exampleInputPassword1" class="form-label">From</label>
+                        <input type="date" value={inpval.fromdate} onChange={setdata} name="fromdate" class="form-control"/>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-md-6 col-12">
+                        <label for="exampleInputPassword1" class="form-label">To</label>
+                        <input type="date" value={inpval.todate} onChange={setdata} name="todate" class="form-control"/>
                     </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputPassword1" class="form-label">Reason</label>
@@ -92,7 +97,7 @@ const Register = () => {
                     </div>
 
                     <button type="submit" onClick={addinpdata} class="btn btn-success text-white tool" style={{width: "200px", marginLeft: "10px"}}>Submit</button>
-                    <a href="/home" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
+                    <a href="/" className="btn text-white btn-danger tool" style={{width: "200px", marginLeft: "10px"}}>Discard</a>
                 </div>
             </form>
         </div>

@@ -71,7 +71,7 @@ const Details = () => {
                     </div>
                 </CardContent>
             </Card>
-            <a href="/home" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
+            <a href="/" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
 
         </div>
     )

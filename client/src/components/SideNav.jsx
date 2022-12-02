@@ -61,7 +61,7 @@ const SideBar = () => {
                         spacing={3}
                         marginTop={"20vh"}
                     >
-                        <a href="/home">
+                        <a href="/">
                             {Nav_Buttons.map((el) => {
                                 return el.index === selectedTab ? (
                                     <Box

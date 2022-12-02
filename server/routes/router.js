@@ -105,18 +105,22 @@ router.patch('/updateuser/:mobile', (req, res) => {
 router.post('/leavecreate/', (req, res) => {
     const name = req.body.name;
     const id = req.body.id;
-    const date = req.body.date;
+    const fromdate = req.body.fromdate;
+    const todate = req.body.todate;
     const reason = req.body.desc;
 
-    connection.query(`insert into employe.leave_details (id,name,days,reason) values ('${id}','${name}','${date}','${reason}');`, (err, result) => {
-        if (err) {
-            console.log(err);
+    const totaldays = Math.floor((Date.parse(todate) - Date.parse(fromdate)) / 86400000) + 1;
+    console.log(totaldays);
 
-        } else {
-            res.send(result);
-            console.log("data inserted");
-        }
-    });
+    // connection.query(`insert into employe.leave_details (id,name,days,reason) values ('${id}','${name}','${date}','${reason}');`, (err, result) => {
+    //     if (err) {
+    //         console.log(err);
+
+    //     } else {
+    //         res.send(result);
+    //         console.log("data inserted");
+    //     }
+    // });
 });
 
 module.exports = router;

@@ -11,7 +11,10 @@ const Hero = () => {
             <Card sx={{
                 padding: "2rem",
             }}>
-                <h1>hero</h1>
+                <h1>
+                    Employee management system
+                </h1>
+                 
             </Card>
         </Stack>
     );

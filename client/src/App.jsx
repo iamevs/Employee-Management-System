@@ -24,8 +24,8 @@ function App() {
           <SideBar />
         {/* } */}
         <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/" element={<Hero />} /> */}
+          <Route path="/" element={<Home />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/edit/:id" element={<Edit />} />
           <Route exact path="/view/:id" element={<Details />} />
