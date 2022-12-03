@@ -184,25 +184,36 @@ router.patch('/updateuser/:emp_id', (req, res) => {
 
 });
 
-router.post('/leavecreate/', (req, res) => {
-    const name = req.body.name;
-    const id = req.body.id;
+router.post('/leavecreate', (req, res) => {
+    // const name = req.body.name;
+    const id = req.body.emp_id;
     const fromdate = req.body.fromdate;
     const todate = req.body.todate;
-    const reason = req.body.desc;
-
+    const reason = req.body.reason;
     const totaldays = Math.floor((Date.parse(todate) - Date.parse(fromdate)) / 86400000) + 1;
-    console.log(totaldays);
+    // console.log(totaldays);
 
-    // connection.query(`insert into employe.leave_details (id,name,days,reason) values ('${id}','${name}','${date}','${reason}');`, (err, result) => {
-    //     if (err) {
-    //         console.log(err);
+    connection.query(`insert into ems.leave (emp_id,fromdate,todate,reason, days) values ('${id}','${fromdate}','${todate}','${reason}','${totaldays}');`, (err, result) => {
+        if (err) {
+            console.log(err);
 
-    //     } else {
-    //         res.send(result);
-    //         console.log("data inserted");
-    //     }
-    // });
+        } else {
+            res.send(result);
+            console.log("leave data inserted");
+        }
+    });
+});
+
+router.get('/induserleave/:emp_id', (req, res) => {
+
+    const id = req.params.emp_id;
+    connection.query(`SELECT * FROM ems.leave WHERE emp_id = '${id}'`, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.status(201).json(result);
+        }
+    });
 });
 
 module.exports = router;

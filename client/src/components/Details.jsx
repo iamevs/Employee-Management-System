@@ -9,6 +9,7 @@ import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import JobDetails from './JobDetails';
+import Leavedetails from './Leavdetails';
 import { Stack } from '@mui/material';
 
 var datailslink = 'http://localhost:8001/induser/';
@@ -102,6 +103,7 @@ const Details = () => {
                 </Card>
                 <JobDetails />
             </Stack>
+            <Leavedetails />
             <a href="/" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
 
         </div>

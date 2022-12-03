@@ -10,12 +10,14 @@ const ContextProvider = ({ children }) => {
     const [udata, setUdata] = useState("");
     const [updata, setUPdata] = useState("");
     const [dltdata, setDLTdata] = useState("");
+    // const [ldata, setldata] = useState("");
 
 
     return (
         <adddata.Provider value={{ udata, setUdata }}>
             <updatedata.Provider value={{ updata, setUPdata }}>
                 <deldata.Provider value={{dltdata, setDLTdata}}>
+
                     {children}
                 </deldata.Provider>
 

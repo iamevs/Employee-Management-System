@@ -4,18 +4,17 @@ import { adddata } from './context/ContextProvider';
 
 var link = "http://localhost:8001/leavecreate";
 
-const Register = () => {
+const Leave = () => {
 
-    const { udata, setUdata } = useContext(adddata);
+    const { setldata, udata, setUdata } = useContext(adddata);
 
     const history = useNavigate();
 
     const [inpval, setINP] = useState({
-        name: "",
-        id: "",
-        fromdate: 0,
-        todate:0 ,
-        desc: ""
+        emp_id: "",
+        fromdate: "",
+        todate:"",
+        reason: "",
     })
 
     const setdata = (e) => {
@@ -33,24 +32,23 @@ const Register = () => {
     const addinpdata = async (e) => {
         e.preventDefault();
 
-        const { name, fromdate, todate , id, desc} = inpval;
+        const { emp_id, fromdate, todate , reason} = inpval;
 
 
-        if (name == "") {
-            alert("name is required")
-        } else if (fromdate == "") {
-            alert("date is required")
-        } else if (id == "") {
-            alert("emp id is required")
-        }  else {
-
+        // if (emp_id == "") {
+        //     alert("name is required")
+        // } else if (fromdate == "") {
+        //     alert("date is required")
+        // } else if (id == "") {
+        //     alert("emp id is required")
+        // }  else {
             const res = await fetch(link, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name, fromdate,todate, id, desc
+                    emp_id, fromdate, todate , reason
                 })
             });
 
@@ -63,10 +61,10 @@ const Register = () => {
 
             } else {
                 history("/");
-                // setUdata(data2)
+                setldata(data)
                 // console.log("data added");
 
-            }
+            // }
         }
 
     }
@@ -76,12 +74,8 @@ const Register = () => {
             <form className="mt-4">
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Employee Id</label>
-                        <input type="number" value={inpval.id} onChange={setdata} name="id" class="form-control" id="exampleInputPassword1" />
+                        <input type="number" value={inpval.emp_id} onChange={setdata} name="emp_id" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">From</label>
@@ -93,7 +87,7 @@ const Register = () => {
                     </div>
                     <div class="mb-3 col-lg-12 col-md-12 col-12">
                         <label for="exampleInputPassword1" class="form-label">Reason</label>
-                        <textarea name="desc" value={inpval.desc} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
+                        <textarea name="reason" value={inpval.reason} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
                     </div>
 
                     <button type="submit" onClick={addinpdata} class="btn btn-success text-white tool" style={{width: "200px", marginLeft: "10px"}}>Submit</button>
@@ -103,4 +97,4 @@ const Register = () => {
         </div>
     )
 }
-export default Register;
+export default Leave;
