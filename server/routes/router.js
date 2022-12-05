@@ -53,6 +53,7 @@ router.post('/create', (req, res) => {
             console.log("data added to qualification table");
         }
     });
+    connection.query(`insert into ems.leave (emp_id, fromdate, todate, reason, days) values ('${emp_id}', 0,0,'nil',0)`)
 });
 
 router.get("/getusers", (req, res) => {
@@ -193,7 +194,7 @@ router.post('/leavecreate', (req, res) => {
     const totaldays = Math.floor((Date.parse(todate) - Date.parse(fromdate)) / 86400000) + 1;
     // console.log(totaldays);
 
-    connection.query(`insert into ems.leave (emp_id,fromdate,todate,reason, days) values ('${id}','${fromdate}','${todate}','${reason}','${totaldays}');`, (err, result) => {
+    connection.query(`update ems.leave set fromdate = '${fromdate}', todate = '${todate}', reason = '${reason}', days = '${totaldays}' where (emp_id = ${id});`, (err, result) => {
         if (err) {
             console.log(err);
 

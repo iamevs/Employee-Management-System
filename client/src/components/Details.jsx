@@ -79,9 +79,9 @@ const Details = () => {
 
     return (
         <div className="container mt-3" style={{ paddingLeft: "20px" }}>
-            <h1 style={{ fontWeight: 600, margin: "40px 0 40px 0" }}>Welcome to {getuserdata.fname} {getuserdata.lname}'s Profile</h1>
+            <h1 style={{ fontWeight: 600, margin: "0px 0 10px 0" }}>Welcome to {getuserdata.fname} {getuserdata.lname}'s Profile</h1>
             <Stack direction={"row"} sx={{ width: "100%" }}>
-                <Card sx={{ maxWidth: 500, borderRadius: "10px" }} className="emp_card">
+                <Card sx={{ maxWidth: 400, borderRadius: "10px" }} className="emp_card">
                     <CardContent>
                         <div className="row" style={{ padding: "20px" }}>
                             <div className="left_view col-lg-6 col-md-6 col-12" style={{ padding: "20px" }}>
@@ -103,7 +103,7 @@ const Details = () => {
                 </Card>
                 <JobDetails />
             </Stack>
-            <Leavedetails />
+            <Leavedetails />    
             <a href="/" className="btn tool" style={{ width: "auto", margin: "10px 0 0 0", color: "#000", backgroundColor: "#fff" }}>Back</a>
 
         </div>

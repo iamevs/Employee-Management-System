@@ -22,7 +22,7 @@ const Edit = () => {
         lname: "",
         gender: "",
         age: "",
-        add: "",
+        address: "",
         email: "",
         pass: "",
         job_dept: "",
@@ -93,7 +93,7 @@ const Edit = () => {
         e.preventDefault();
 
         const {
-            emp_id, fname, lname, gender, age, add, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in
+            emp_id, fname, lname, gender, age, address, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in
         } = inpval;
 
         redirectfunc();
@@ -104,7 +104,7 @@ const Edit = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emp_id, fname, lname, gender, age, add, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in
+                emp_id, fname, lname, gender, age, address, email, pass, job_dept, job_name, job_description, salary_range, amount, bonus, position, requirements, date_in
             })
         });
 
@@ -151,7 +151,7 @@ const Edit = () => {
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Address</label>
-                        <input type="text" value={inpval.address} onChange={setdata} name="add" class="form-control" id="exampleInputPassword1" />
+                        <input type="text" value={inpval.address} onChange={setdata} name="address" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Email</label>

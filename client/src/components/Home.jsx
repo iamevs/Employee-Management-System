@@ -68,7 +68,7 @@ const Home = () => {
             setDLTdata(deletedata)
             getdata();
         }
-
+        
     }
 
 
